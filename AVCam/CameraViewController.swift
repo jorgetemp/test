@@ -370,7 +370,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
 	
 	@IBOutlet private weak var cameraUnavailableLabel: UILabel!
 	
-	private let videoDeviceDiscoverySession = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInDuoCamera], mediaType: AVMediaTypeVideo, position: .unspecified)!
+	private let videoDeviceDiscoverySession = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera, AVCaptureDeviceType.builtInDualCamera], mediaType: AVMediaTypeVideo, position: .unspecified)!
 	
 	@IBAction private func changeCamera(_ cameraButton: UIButton) {
 		cameraButton.isEnabled = false
@@ -389,7 +389,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
 			switch currentPosition {
 				case .unspecified, .front:
 					preferredPosition = .back
-					preferredDeviceType = .builtInDuoCamera
+					preferredDeviceType = AVCaptureDeviceType.builtInDualCamera
 				
 				case .back:
 					preferredPosition = .front
